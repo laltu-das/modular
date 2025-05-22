@@ -21,7 +21,6 @@ use Laltu\Modular\Console\Commands\Make\MakeModule;
 use Laltu\Modular\Console\Commands\ModulesCache;
 use Laltu\Modular\Console\Commands\ModulesClear;
 use Laltu\Modular\Console\Commands\ModulesList;
-use Laltu\Modular\Console\Commands\ModulesSync;
 use Livewire\Livewire;
 use ReflectionClass;
 use Symfony\Component\Finder\SplFileInfo;
@@ -112,7 +111,6 @@ class ModularServiceProvider extends ServiceProvider
 			MakeModule::class,
 			ModulesCache::class,
 			ModulesClear::class,
-			ModulesSync::class,
 			ModulesList::class,
 		]);
 	}
