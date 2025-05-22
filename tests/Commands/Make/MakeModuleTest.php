@@ -3,7 +3,7 @@
 namespace Laltu\Modular\Tests\Commands\Make;
 
 use Laltu\Modular\Console\Commands\Make\MakeModule;
-use Laltu\Modular\Support\Facades\Modules;
+use Laltu\Modular\Facades\Modules;
 use Laltu\Modular\Tests\Concerns\WritesToAppFilesystem;
 use Laltu\Modular\Tests\TestCase;
 

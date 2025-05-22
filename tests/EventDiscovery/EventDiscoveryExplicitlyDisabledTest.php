@@ -4,13 +4,14 @@
 // this needs to be its own isolated test file.
 
 namespace Laltu\Modular\Tests\EventDiscovery {
-	use App\EventDiscoveryExplicitlyDisabledTestProvider;
-	use Illuminate\Support\Facades\Event;
-	use Laltu\Modular\Support\Facades\Modules;
-	use Laltu\Modular\Tests\Concerns\PreloadsAppModules;
-	use Laltu\Modular\Tests\TestCase;
-	
-	class EventDiscoveryExplicitlyDisabledTest extends TestCase
+
+    use App\EventDiscoveryExplicitlyDisabledTestProvider;
+    use Illuminate\Support\Facades\Event;
+    use Laltu\Modular\Facades\Modules;
+    use Laltu\Modular\Tests\Concerns\PreloadsAppModules;
+    use Laltu\Modular\Tests\TestCase;
+
+    class EventDiscoveryExplicitlyDisabledTest extends TestCase
 	{
 		use PreloadsAppModules;
 		
@@ -55,9 +56,10 @@ namespace Laltu\Modular\Tests\EventDiscovery {
 // We need to use an "App" namespace to tell modular that this provider should be deferred to
 
 namespace App {
-	use Illuminate\Foundation\Support\Providers\EventServiceProvider;
-	
-	class EventDiscoveryExplicitlyDisabledTestProvider extends EventServiceProvider
+
+    use Illuminate\Foundation\Support\Providers\EventServiceProvider;
+
+    class EventDiscoveryExplicitlyDisabledTestProvider extends EventServiceProvider
 	{
 		public function shouldDiscoverEvents()
 		{

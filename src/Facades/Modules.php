@@ -1,6 +1,6 @@
 <?php
 
-namespace Laltu\Modular\Support\Facades;
+namespace Laltu\Modular\Facades;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;

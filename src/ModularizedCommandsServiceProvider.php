@@ -1,9 +1,8 @@
 <?php
 
-namespace Laltu\Modular\Support;
+namespace Laltu\Modular;
 
 use Illuminate\Console\Application;
-use Illuminate\Console\Application as Artisan;
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand as OriginalMakeMigrationCommand;
 use Illuminate\Support\ServiceProvider;
 use Laltu\Modular\Console\Commands\Database\SeedCommand;
@@ -31,7 +30,6 @@ use Laltu\Modular\Console\Commands\Make\MakeResource;
 use Laltu\Modular\Console\Commands\Make\MakeRule;
 use Laltu\Modular\Console\Commands\Make\MakeSeeder;
 use Laltu\Modular\Console\Commands\Make\MakeTest;
-use Livewire\Commands as Livewire;
 
 class ModularizedCommandsServiceProvider extends ServiceProvider
 {
@@ -67,7 +65,7 @@ class ModularizedCommandsServiceProvider extends ServiceProvider
 		// the default behavior regardless of which service provider happens to be
 		// bootstrapped first (this mostly matters for Livewire).
 		$this->app->booted(function() {
-			Artisan::starting(function(Application $artisan) {
+			Application::starting(function(Application $artisan) {
 				$this->registerMakeCommandOverrides();
 				$this->registerMigrationCommandOverrides();
 				$this->registerLivewireOverrides($artisan);
@@ -93,26 +91,6 @@ class ModularizedCommandsServiceProvider extends ServiceProvider
 		// Laravel 9
 		$this->app->singleton(OriginalMakeMigrationCommand::class, function($app) {
 			return new MakeMigration($app['migration.creator'], $app['composer']);
-		});
-	}
-	
-	protected function registerLivewireOverrides(Artisan $artisan): void
-    {
-		// Don't register commands if Livewire isn't installed
-		if (! class_exists(Livewire\MakeCommand::class)) {
-			return;
-		}
-		
-		// Replace the resolved command with our subclass
-		$artisan->resolveCommands([MakeLivewire::class]);
-		
-		// Ensure that if 'make:livewire' or 'livewire:make' is resolved from the container
-		// in the future, our subclass is used instead
-		$this->app->extend(Livewire\MakeCommand::class, function() {
-			return new MakeLivewire();
-		});
-		$this->app->extend(Livewire\MakeLivewireCommand::class, function() {
-			return new MakeLivewire();
 		});
 	}
 }

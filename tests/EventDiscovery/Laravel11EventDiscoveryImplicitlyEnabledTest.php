@@ -4,7 +4,7 @@ namespace Laltu\Modular\Tests\EventDiscovery;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Support\Facades\Event;
-use Laltu\Modular\Support\Facades\Modules;
+use Laltu\Modular\Facades\Modules;
 use Laltu\Modular\Tests\Concerns\PreloadsAppModules;
 use Laltu\Modular\Tests\TestCase;
 

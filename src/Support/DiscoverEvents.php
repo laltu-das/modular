@@ -2,7 +2,7 @@
 
 namespace Laltu\Modular\Support;
 
-use Laltu\Modular\Support\Facades\Modules;
+use Laltu\Modular\Facades\Modules;
 use SplFileInfo;
 
 class DiscoverEvents extends \Illuminate\Foundation\Events\DiscoverEvents

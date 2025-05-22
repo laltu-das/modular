@@ -4,11 +4,11 @@ namespace Laltu\Modular\Tests;
 
 use Illuminate\Encryption\Encrypter;
 use Laltu\Modular\Console\Commands\Make\MakeModule;
+use Laltu\Modular\Console\ModularServiceProvider;
+use Laltu\Modular\Facades\Modules;
+use Laltu\Modular\ModularEventServiceProvider;
+use Laltu\Modular\ModularizedCommandsServiceProvider;
 use Laltu\Modular\Support\DatabaseFactoryHelper;
-use Laltu\Modular\Support\Facades\Modules;
-use Laltu\Modular\Support\ModularEventServiceProvider;
-use Laltu\Modular\Support\ModularizedCommandsServiceProvider;
-use Laltu\Modular\Support\ModularServiceProvider;
 use Laltu\Modular\Support\ModuleConfig;
 use Orchestra\Testbench\TestCase as Orchestra;
 

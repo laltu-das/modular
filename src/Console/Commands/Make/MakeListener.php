@@ -5,7 +5,7 @@ namespace Laltu\Modular\Console\Commands\Make;
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Foundation\Console\ListenerMakeCommand;
-use Laltu\Modular\Support\Facades\Modules;
+use Laltu\Modular\Facades\Modules;
 
 class MakeListener extends ListenerMakeCommand
 {

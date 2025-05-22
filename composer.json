@@ -9,24 +9,19 @@
     ],
     "authors": [
         {
-            "name": "Chris Morrell",
-            "homepage": "http://www.cmorrell.com"
+            "name": "Laltu Das"
         }
     ],
     "type": "library",
     "license": "MIT",
     "require": {
         "php": ">=8.2",
-        "composer/composer": "^2.1",
-        "illuminate/support": "^11|^12"
+        "illuminate/support": "^12"
     },
     "require-dev": {
-        "orchestra/testbench": "^9.11|^10.0",
-        "friendsofphp/php-cs-fixer": "^3.14",
+        "orchestra/testbench": "^10.0",
         "mockery/mockery": "^1.5",
-        "phpunit/phpunit": "^9.5|^10.5|^11.5",
-        "ext-json": "*",
-        "livewire/livewire": "^3.0"
+        "phpunit/phpunit": "^11.5"
     },
     "autoload": {
         "psr-4": {
@@ -41,12 +36,12 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Laltu\\Modular\\Support\\ModularServiceProvider",
-                "Laltu\\Modular\\Support\\ModularizedCommandsServiceProvider",
-                "Laltu\\Modular\\Support\\ModularEventServiceProvider"
+                "Laltu\\Modular\\ModularServiceProvider",
+                "Laltu\\Modular\\ModularizedCommandsServiceProvider",
+                "Laltu\\Modular\\ModularEventServiceProvider"
             ],
             "aliases": {
-                "Modules": "Laltu\\Modular\\Support\\Facades\\Modules"
+                "Modules": "Laltu\\Modular\\Facades\\Modules"
             }
         }
     },

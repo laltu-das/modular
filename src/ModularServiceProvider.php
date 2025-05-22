@@ -1,6 +1,6 @@
 <?php
 
-namespace Laltu\Modular\Support;
+namespace Laltu\Modular;
 
 use Closure;
 use Illuminate\Console\Application as Artisan;
@@ -12,6 +12,7 @@ use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
 use Illuminate\Database\Eloquent\Factories\Factory as EloquentFactory;
 use Illuminate\Database\Migrations\Migrator;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Illuminate\Translation\Translator;
@@ -22,7 +23,10 @@ use Laltu\Modular\Console\Commands\Make\MakeModule;
 use Laltu\Modular\Console\Commands\ModulesCache;
 use Laltu\Modular\Console\Commands\ModulesClear;
 use Laltu\Modular\Console\Commands\ModulesList;
-use Livewire\Livewire;
+use Laltu\Modular\Support\AutoDiscoveryHelper;
+use Laltu\Modular\Support\DatabaseFactoryHelper;
+use Laltu\Modular\Support\ModuleConfig;
+use Laltu\Modular\Support\ModuleRegistry;
 use ReflectionClass;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -69,20 +73,21 @@ class ModularServiceProvider extends ServiceProvider
 		$this->registerLazily(Gate::class, [$this, 'registerPolicies']);
 		
 		// Look for and register all our commands in the CLI context
-		Artisan::starting(Closure::fromCallable([$this, 'onArtisanStart']));
+        Artisan::starting(fn(Artisan $artisan) => $this->onArtisanStart($artisan));
 	}
-	
-	public function boot(): void
+
+    /**
+     * @throws BindingResolutionException
+     */
+    public function boot(): void
 	{
 		$this->publishVendorFiles();
 		$this->bootPackageCommands();
 		
 		$this->bootRoutes();
-		$this->bootBreadcrumbs();
 		$this->bootViews();
 		$this->bootBladeComponents();
 		$this->bootTranslations();
-		$this->bootLivewireComponents();
 	}
 
     /**
@@ -121,18 +126,22 @@ class ModularServiceProvider extends ServiceProvider
 			ModulesList::class,
 		]);
 	}
-	
-	protected function bootRoutes(): void
+
+    /**
+     * @throws BindingResolutionException
+     */
+    protected function bootRoutes(): void
 	{
 		if ($this->app->routesAreCached()) {
 			return;
 		}
-		
-		$this->autoDiscoveryHelper()
-			->routeFileFinder()
-			->each(function(SplFileInfo $file) {
-				require $file->getRealPath();
-			});
+
+        $this->autoDiscoveryHelper()
+            ->routeFileFinder()
+            ->each(function (SplFileInfo $file) {
+                Route::middleware('web')
+                    ->group($file->getRealPath());
+            });
 	}
 	
 	protected function bootViews(): void
@@ -189,54 +198,9 @@ class ModularServiceProvider extends ServiceProvider
 	}
 
     /**
-     * This functionality is likely to go away at some point so don't rely
-     * on it too much. The package has been abandoned.
      * @throws BindingResolutionException
      */
-	protected function bootBreadcrumbs(): void
-	{
-		$class_name = 'Diglactic\\Breadcrumbs\\Manager';
-		
-		if (! class_exists($class_name)) {
-			return;
-		}
-		
-		// The breadcrumb package makes $breadcrumbs available in the scope of breadcrumb
-		// files, so we'll do the same for consistency-sake
-		$breadcrumbs = $this->app->make($class_name);
-		
-		$files = glob($this->getModulesBasePath().'/*/routes/breadcrumbs/*.php');
-		
-		foreach ($files as $file) {
-			require_once $file;
-		}
-	}
-	
-	protected function bootLivewireComponents(): void
-	{
-		if (! class_exists(Livewire::class)) {
-			return;
-		}
-		
-		$this->autoDiscoveryHelper()
-			->livewireComponentFileFinder()
-			->each(function(SplFileInfo $component) {
-				$module = $this->registry()->moduleForPathOrFail($component->getPath());
-				
-				$component_name = Str::of($component->getRelativePath())
-					->explode('/')
-					->filter()
-					->push($component->getBasename('.php'))
-					->map([Str::class, 'kebab'])
-					->implode('.');
-				
-				$fully_qualified_component = $module->pathToFullyQualifiedClassName($component->getPathname());
-				
-				Livewire::component("{$module->name}::{$component_name}", $fully_qualified_component);
-			});
-	}
-	
-	protected function registerMigrations(Migrator $migrator): void
+    protected function registerMigrations(Migrator $migrator): void
 	{
 		$this->autoDiscoveryHelper()
 			->migrationDirectoryFinder()

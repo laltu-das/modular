@@ -1,11 +1,14 @@
 <?php
 
-namespace Laltu\Modular\Support;
+namespace Laltu\Modular;
 
 use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Foundation\Events\DiscoverEvents;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
+use Laltu\Modular\Support\AutoDiscoveryHelper;
+use Laltu\Modular\Support\ModuleRegistry;
 use ReflectionProperty;
 use Symfony\Component\Finder\SplFileInfo;
 
@@ -16,7 +19,7 @@ class ModularEventServiceProvider extends ServiceProvider
 		// We need to do this in the App::booting hook to ensure that it registers
 		// events before the EventServiceProvider::booting callback triggers. It's
 		// necessary to modify the existing EventServiceProvider's $listen array,
-		// rather than just register our own EventServiceProvider subclass, because
+		// rather than register our own EventServiceProvider subclass, because
 		// Laravel behaves differently if the non-default provider is registered.
 		$this->app->booting(function() {
 			$events = $this->getEvents();
@@ -30,8 +33,11 @@ class ModularEventServiceProvider extends ServiceProvider
             $listen->setValue($provider, array_merge_recursive($listen->getValue($provider), $events));
 		});
 	}
-	
-	public function getEvents(): array
+
+    /**
+     * @throws BindingResolutionException
+     */
+    public function getEvents(): array
 	{
 		// If events are cached, or Modular event discovery is disabled, then we'll
 		// just let the normal event service provider handle all the event loading.
