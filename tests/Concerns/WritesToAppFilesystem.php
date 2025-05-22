@@ -9,7 +9,7 @@ trait WritesToAppFilesystem
 {
 	protected $filesystem;
 	
-	protected string $last_test_modules_root = 'app-modules';
+	protected string $last_test_modules_root = 'modules';
 	
 	/** @before */
 	public function cleanUpAppModules(): void
@@ -45,7 +45,7 @@ trait WritesToAppFilesystem
 		return $to;
 	}
 	
-	protected function getModulePath(string $module_name, string $path = '/', string $modules_root = 'app-modules'): string
+	protected function getModulePath(string $module_name, string $path = '/', string $modules_root = 'modules'): string
 	{
 		$this->last_test_modules_root = $modules_root;
 		

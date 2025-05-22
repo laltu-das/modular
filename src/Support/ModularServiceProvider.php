@@ -98,7 +98,7 @@ class ModularServiceProvider extends ServiceProvider
 	protected function publishVendorFiles(): void
 	{
 		$this->publishes([
-			"{$this->base_dir}/config.php" => $this->app->configPath('app-modules.php'),
+			"{$this->base_dir}/config.php" => $this->app->configPath('modules.php'),
 		], 'modular-config');
 	}
 	
@@ -321,7 +321,7 @@ class ModularServiceProvider extends ServiceProvider
 	protected function getModulesBasePath(): string
 	{
 		if (null === $this->modules_path) {
-			$directory_name = $this->app->make('config')->get('app-modules.modules_directory', 'app-modules');
+			$directory_name = $this->app->make('config')->get('modules.modules_directory', 'modules');
 			$this->modules_path = str_replace('\\', '/', $this->app->basePath($directory_name));
 		}
 		

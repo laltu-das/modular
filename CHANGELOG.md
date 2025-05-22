@@ -160,7 +160,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   `php artisan modules:sync` will now update additional PhpStorm config files
 -   Partial support for `--all` on `make:model`
 -   Initial support for component auto-discovery
--   Switched to single `app-modules/*` composer repository rather than new repositories for each module
+-   Switched to single `modules/*` composer repository rather than new repositories for each module
 -   Added description field to generated `composer.json` file
 -   Moved tests from `autoload-dev` to `autoload` because composer doesn't support 
     `autoload-dev` for non-root configs

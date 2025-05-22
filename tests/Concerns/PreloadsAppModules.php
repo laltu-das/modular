@@ -11,8 +11,8 @@ trait PreloadsAppModules
 	/** @before */
 	public function prepareTestModule(): void
 	{
-		$src = __DIR__.'/../testbench-core/app-modules';
-		$dest = static::applicationBasePath().'/app-modules';
+		$src = __DIR__.'/../testbench-core/modules';
+		$dest = static::applicationBasePath().'/modules';
 		
 		$fs = new Filesystem();
 		$fs->deleteDirectory($dest);
@@ -30,7 +30,7 @@ trait PreloadsAppModules
 						['', DIRECTORY_SEPARATOR],
 						$fqcn
 					);
-					$path = static::applicationBasePath().'/app-modules/test-module/src/'.$path.'.php';
+					$path = static::applicationBasePath().'/modules/test-module/src/'.$path.'.php';
 					if (file_exists($path)) {
 						include_once $path;
 					}

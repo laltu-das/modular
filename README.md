@@ -47,7 +47,7 @@ and [Laravel package discovery](https://laravel.com/docs/11.x/packages#package-d
 initialization, and then provides minimal tooling to fill in any gaps.
 
 This project is as much a set of conventions as it is a package. The fundamental idea
-is that you can create “modules” in a separate `app-modules/` directory, which allows you to
+is that you can create “modules” in a separate `modules/` directory, which allows you to
 better organize large projects. These modules use the existing 
 [Laravel package system](https://laravel.com/docs/11.x/packages), and follow existing Laravel
 conventions.
@@ -95,7 +95,7 @@ php artisan make:module my-module
 Modular will scaffold up a new module for you:
 
 ```
-app-modules/
+modules/
   my-module/
     composer.json
     src/
@@ -106,7 +106,7 @@ app-modules/
 ```
 
 It will also add two new entries to your app's `composer.json` file. The first entry registers
-`./app-modules/my-module/` as a [path repository](https://getcomposer.org/doc/05-repositories.md#path),
+`./modules/my-module/` as a [path repository](https://getcomposer.org/doc/05-repositories.md#path),
 and the second requires `modules/my-module:*` (like any other Composer dependency).
 
 Modular will then remind you to perform a Composer update, so let's do that now:
@@ -210,12 +210,12 @@ A few examples:
 
 | File                                                               | Component                      |
 |--------------------------------------------------------------------|--------------------------------|
-| `app-modules/demo/src/View/Components/Basic.php`                   | `<x-demo::basic />`            |
-| `app-modules/demo/src/View/Components/Nested/One.php`              | `<x-demo::nested.one />`       |
-| `app-modules/demo/src/View/Components/Nested/Two.php`              | `<x-demo::nested.two />`       |
-| `app-modules/demo/resources/components/anonymous.blade.php`        | `<x-demo::anonymous />`        |
-| `app-modules/demo/resources/components/anonymous/index.blade.php`  | `<x-demo::anonymous />`        |
-| `app-modules/demo/resources/components/anonymous/nested.blade.php` | `<x-demo::anonymous.nested />` |
+| `modules/demo/src/View/Components/Basic.php`                   | `<x-demo::basic />`            |
+| `modules/demo/src/View/Components/Nested/One.php`              | `<x-demo::nested.one />`       |
+| `modules/demo/src/View/Components/Nested/Two.php`              | `<x-demo::nested.two />`       |
+| `modules/demo/resources/components/anonymous.blade.php`        | `<x-demo::anonymous />`        |
+| `modules/demo/resources/components/anonymous/index.blade.php`  | `<x-demo::anonymous />`        |
+| `modules/demo/resources/components/anonymous/nested.blade.php` | `<x-demo::anonymous.nested />` |
 
 ### Translations
 
@@ -223,14 +223,14 @@ Your [Laravel Translations](https://laravel.com/docs/11.x/localization#defining-
 be automatically registered under a component namespace for you. For example, if you have a translation file
 at:
 
-`app-modules/demo/resources/lang/en/messages.php`
+`modules/demo/resources/lang/en/messages.php`
 
 You could access those translations with: `__('demo::messages.welcome');`
 
 ### Customizing the Default Module Structure
 
 When you call `make:module`, Modular will scaffold some basic boilerplate for you. If you 
-would like to customize this behavior, you can do so by publishing the `app-modules.php`
+would like to customize this behavior, you can do so by publishing the `modules.php`
 config file and adding your own stubs.
 
 Both filenames and file contents support a number of placeholders. These include:

@@ -15,14 +15,14 @@ class ModulesSyncTest extends TestCase
 		$config_path = $this->copyStub('phpunit.xml', '/');
 		
 		$config = simplexml_load_string($this->filesystem->get($config_path));
-		$nodes = $config->xpath("//phpunit//testsuites//testsuite//directory[text()='./app-modules/*/tests']");
+		$nodes = $config->xpath("//phpunit//testsuites//testsuite//directory[text()='./modules/*/tests']");
 		
 		$this->assertCount(0, $nodes);
 		
 		$this->artisan(ModulesSync::class);
 		
 		$config = simplexml_load_string($this->filesystem->get($config_path));
-		$nodes = $config->xpath("//phpunit//testsuites//testsuite//directory[text()='./app-modules/*/tests']");
+		$nodes = $config->xpath("//phpunit//testsuites//testsuite//directory[text()='./modules/*/tests']");
 		
 		$this->assertCount(1, $nodes);
 	}

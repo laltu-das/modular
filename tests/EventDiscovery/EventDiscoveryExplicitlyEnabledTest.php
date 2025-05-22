@@ -52,7 +52,7 @@ namespace Laltu\Modular\Tests\EventDiscovery {
 		{
 			parent::resolveApplicationConfiguration($app);
 			
-			$app['config']['app-modules.should_discover_events'] = true;
+			$app['config']['modules.should_discover_events'] = true;
 		}
 	}
 }

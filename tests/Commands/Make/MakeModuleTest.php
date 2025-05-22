@@ -21,7 +21,7 @@ class MakeModuleTest extends TestCase
 		]);
 		
 		$fs = $this->filesystem();
-		$module_path = $this->getApplicationBasePath().'/app-modules/'.$module_name;
+		$module_path = $this->getApplicationBasePath().'/modules/'.$module_name;
 		
 		$this->assertTrue($fs->isDirectory($module_path));
 		$this->assertTrue($fs->isDirectory($module_path.'/database'));
@@ -55,7 +55,7 @@ class MakeModuleTest extends TestCase
 		
 		$repository = [
 			'type' => 'path',
-			'url' => 'app-modules/*',
+			'url' => 'modules/*',
 			'options' => ['symlink' => true],
 		];
 		$this->assertContains($repository, $app_composer_contents['repositories']);
@@ -67,7 +67,7 @@ class MakeModuleTest extends TestCase
 		
 		$module_name = 'test-module';
 		
-		config()->set('app-modules.stubs', [
+		config()->set('modules.stubs', [
 			'src/StubClassNamePrefixInfo.php' => str_replace('\\', '/', dirname(__DIR__, 2)).'/stubs/test-stub.php',
 		]);
 		
@@ -92,12 +92,12 @@ class MakeModuleTest extends TestCase
 		
 		Modules::reload();
 		
-		$this->assertTrue($fs->isDirectory($this->getApplicationBasePath().'/app-modules/test-module'));
+		$this->assertTrue($fs->isDirectory($this->getApplicationBasePath().'/modules/test-module'));
 		
 		$this->artisan(MakeModule::class, ['name' => 'test-module-two'])
 			->assertExitCode(0);
 		
-		$this->assertTrue($fs->isDirectory($this->getApplicationBasePath().'/app-modules/test-module-two'));
+		$this->assertTrue($fs->isDirectory($this->getApplicationBasePath().'/modules/test-module-two'));
 	}
 
 	public function test_it_does_not_create_an_empty_directory_if_prompt_on_first_module_if_no_custom_namespace_is_set_is_rejected(): void
@@ -110,6 +110,6 @@ class MakeModuleTest extends TestCase
 
 		Modules::reload();
 
-		$this->assertFalse($fs->isDirectory($this->getApplicationBasePath().'/app-modules/test-module'));
+		$this->assertFalse($fs->isDirectory($this->getApplicationBasePath().'/modules/test-module'));
 	}
 }
