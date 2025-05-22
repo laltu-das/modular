@@ -4,6 +4,7 @@ namespace Laltu\Modular\Console\Commands;
 
 use Laltu\Modular\Support\ModuleConfig;
 use Laltu\Modular\Support\ModuleRegistry;
+use function Laravel\Prompts\select;
 use Symfony\Component\Console\Exception\InvalidOptionException;
 use Symfony\Component\Console\Input\InputOption;
 
