@@ -1,75 +1,40 @@
-<img alt="Modular" src="art/modular.png" width="100%" />
-
-# `Laltu/modular`
+# `laltu/modular`
 
 <div>
-	<a href="https://github.com/Laltu/modular/actions/workflows/phpunit.yml" target="_blank">
+	<a href="https://github.com/laltu-das/modular/actions/workflows/phpunit.yml" target="_blank">
 		<img 
-			src="https://github.com/Laltu/modular/actions/workflows/phpunit.yml/badge.svg" 
+			src="https://github.com/laltu/modular/actions/workflows/phpunit.yml/badge.svg" 
 			alt="Build Status" 
 		/>
 	</a>
-	<a href="https://codeclimate.com/github/Laltu/modular/test_coverage" target="_blank">
+	<a href="https://codeclimate.com/github/laltu/modular/test_coverage" target="_blank">
 		<img 
 			src="https://api.codeclimate.com/v1/badges/dd927802d52f4f75ea6c/test_coverage" 
 			alt="Coverage Status" 
 		/>
 	</a>
-	<a href="https://packagist.org/packages/Laltu/modular" target="_blank">
+	<a href="https://packagist.org/packages/laltu/modular" target="_blank">
         <img 
-            src="https://poser.pugx.org/Laltu/modular/v/stable" 
+            src="https://poser.pugx.org/laltu/modular/v/stable" 
             alt="Latest Stable Release" 
         />
 	</a>
-	<a href="./LICENSE" target="_blank">
-        <img 
-            src="https://poser.pugx.org/Laltu/modular/license" 
-            alt="MIT Licensed" 
-        />
-    </a>
-    <a href="https://twitter.com/inxilpro" target="_blank">
-        <img 
-            src="https://img.shields.io/twitter/follow/inxilpro?style=social" 
-            alt="Follow @inxilpro on Twitter" 
-        />
-    </a>
-    <a href="https://any.dev/@chris" target="_blank">
-        <img 
-            src="https://img.shields.io/mastodon/follow/109584001693739813?domain=https%3A%2F%2Fany.dev&style=social" 
-            alt="Follow @chris@any.dev on Mastodon" 
-        />
-    </a>
 </div>
 
-`Laltu/modular` is a module system for Laravel applications. It uses
+`laltu/modular` is a module system for Laravel applications. It uses
 [Composer path repositories](https://getcomposer.org/doc/05-repositories.md#path) for autoloading, 
 and [Laravel package discovery](https://laravel.com/docs/11.x/packages#package-discovery) for module
 initialization, and then provides minimal tooling to fill in any gaps.
-
-This project is as much a set of conventions as it is a package. The fundamental idea
-is that you can create “modules” in a separate `modules/` directory, which allows you to
-better organize large projects. These modules use the existing 
-[Laravel package system](https://laravel.com/docs/11.x/packages), and follow existing Laravel
-conventions.
-
-- [Walkthrough Video](#walkthrough-video)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Comparison to `nwidart/laravel-modules`](#comparison-to-nwidartlaravel-modules)
-
-## Walkthrough Video
-
-[![Intro video](https://embed-ssl.wistia.com/deliveries/98ebc7e01537a644df2d3af93d928257.jpg?image_crop_resized=1600x900&image_play_button=true&image_play_button_size=2x&image_play_button_color=1e71e7e0)](https://Laltu.wistia.com/medias/pivaxithl7?wvideo=pivaxithl7)
 
 ## Installation
 
 To get started, run:
 
 ```shell script
-composer require Laltu/modular
+composer require laltu/modular
 ```
 
-Laravel will auto-discover the package and everything will be automatically set up for you.
+Laravel will auto-discover the package, and everything will be automatically set up for you.
 
 ### Publish the config
 
@@ -77,7 +42,7 @@ While not required, it's highly recommended that you customize your default name
 for modules. By default, this is set to `Modules\`, which works just fine but makes it
 harder to extract your module to a separate package should you ever choose to.
 
-We recommend configuring a organization namespace (we use `"Laltu"`, for example).
+We recommend configuring an organization namespace (we use `"laltu"`, for example).
 To do this, you'll need to publish the package config:
 
 ```shell script
@@ -246,19 +211,3 @@ Both filenames and file contents support a number of placeholders. These include
  - `StubMigrationPrefix`
  - `StubFullyQualifiedTestCaseBase`
  - `StubTestCaseBase`
-
-## Comparison to `nwidart/laravel-modules`
-
-[Laravel Modules](https://nwidart.com/laravel-modules) is a great package that’s been
-around since 2016 and is used by 1000's of projects. The main reason we decided to build
-our own module system rather than using `laravel-modules` comes down to two decisions:
-
-1. We wanted something that followed Laravel conventions rather than using its own
-   directory structure/etc.
-2. We wanted something that felt “lighter weight”
-
-If you are building a CMS that needs to support 3rd-party modules that can be dynamically
-enabled and disabled, Laravel Modules will be a better fit.
-
-On the other hand, if you're mostly interested in modules for organization, and want to
-stick closely to Laravel conventions, we’d highly recommend giving Laltu/Modular a try!
