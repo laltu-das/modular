@@ -334,7 +334,6 @@ class MakeModule extends Command
 			'composer.json' => $this->pathToStub($composer_stub),
 			'src/Providers/StubClassNamePrefixServiceProvider.php' => $this->pathToStub('ServiceProvider.php'),
 			'tests/Feature/Providers/StubClassNamePrefixServiceProviderTest.php' => $this->pathToStub('ServiceProviderTest.php'),
-			'database/migrations/StubMigrationPrefix_set_up_StubModuleName_module.php' => $this->pathToStub('migration.php'),
 			'routes/StubModuleName-routes.php' => $this->pathToStub('web-routes.php'),
 			'resources/views/index.blade.php' => $this->pathToStub('view.blade.php'),
 			'resources/views/create.blade.php' => $this->pathToStub('view.blade.php'),
