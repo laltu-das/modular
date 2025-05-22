@@ -1,6 +1,6 @@
 <?php
 
-namespace InterNACHI\Modular\Exceptions;
+namespace Laltu\Modular\Exceptions;
 
 use Throwable;
 

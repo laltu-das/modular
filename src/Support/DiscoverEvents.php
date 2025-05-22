@@ -1,8 +1,8 @@
 <?php
 
-namespace InterNACHI\Modular\Support;
+namespace Laltu\Modular\Support;
 
-use InterNACHI\Modular\Support\Facades\Modules;
+use Laltu\Modular\Support\Facades\Modules;
 use SplFileInfo;
 
 class DiscoverEvents extends \Illuminate\Foundation\Events\DiscoverEvents

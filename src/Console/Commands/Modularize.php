@@ -1,9 +1,9 @@
 <?php
 
-namespace InterNACHI\Modular\Console\Commands;
+namespace Laltu\Modular\Console\Commands;
 
-use InterNACHI\Modular\Support\ModuleConfig;
-use InterNACHI\Modular\Support\ModuleRegistry;
+use Laltu\Modular\Support\ModuleConfig;
+use Laltu\Modular\Support\ModuleRegistry;
 use Symfony\Component\Console\Exception\InvalidOptionException;
 use Symfony\Component\Console\Input\InputOption;
 

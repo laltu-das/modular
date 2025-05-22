@@ -1,8 +1,8 @@
 <?php
 
-namespace InterNACHI\Modular\Tests\Concerns;
+namespace Laltu\Modular\Tests\Concerns;
 
-use InterNACHI\Modular\Console\Commands\Make\MakeModule;
+use Laltu\Modular\Console\Commands\Make\MakeModule;
 
 trait TestsMakeCommands
 {

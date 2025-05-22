@@ -1,6 +1,6 @@
 <?php
 
-namespace InterNACHI\Modular\Console\Commands\Make;
+namespace Laltu\Modular\Console\Commands\Make;
 
 use Composer\Factory;
 use Composer\Json\JsonFile;
@@ -8,8 +8,8 @@ use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use InterNACHI\Modular\Console\Commands\ModulesClear;
-use InterNACHI\Modular\Support\ModuleRegistry;
+use Laltu\Modular\Console\Commands\ModulesClear;
+use Laltu\Modular\Support\ModuleRegistry;
 use Symfony\Component\Console\Formatter\OutputFormatterStyle;
 use Symfony\Component\Console\Terminal;
 
@@ -70,7 +70,7 @@ class MakeModule extends Command
 	protected $filesystem;
 	
 	/**
-	 * @var \InterNACHI\Modular\Support\ModuleRegistry
+	 * @var \Laltu\Modular\Support\ModuleRegistry
 	 */
 	protected $module_registry;
 	

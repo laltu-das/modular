@@ -1,10 +1,10 @@
 <?php
 
-namespace InterNACHI\Modular\Tests\Commands;
+namespace Laltu\Modular\Tests\Commands;
 
-use InterNACHI\Modular\Console\Commands\ModulesCache;
-use InterNACHI\Modular\Tests\Concerns\WritesToAppFilesystem;
-use InterNACHI\Modular\Tests\TestCase;
+use Laltu\Modular\Console\Commands\ModulesCache;
+use Laltu\Modular\Tests\Concerns\WritesToAppFilesystem;
+use Laltu\Modular\Tests\TestCase;
 
 class ModulesCacheTest extends TestCase
 {

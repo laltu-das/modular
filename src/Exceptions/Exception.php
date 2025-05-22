@@ -1,6 +1,6 @@
 <?php
 
-namespace InterNACHI\Modular\Exceptions;
+namespace Laltu\Modular\Exceptions;
 
 class Exception extends \Exception
 {

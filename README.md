@@ -1,29 +1,29 @@
 <img alt="Modular" src="art/modular.png" width="100%" />
 
-# `internachi/modular`
+# `Laltu/modular`
 
 <div>
-	<a href="https://github.com/InterNACHI/modular/actions/workflows/phpunit.yml" target="_blank">
+	<a href="https://github.com/Laltu/modular/actions/workflows/phpunit.yml" target="_blank">
 		<img 
-			src="https://github.com/InterNACHI/modular/actions/workflows/phpunit.yml/badge.svg" 
+			src="https://github.com/Laltu/modular/actions/workflows/phpunit.yml/badge.svg" 
 			alt="Build Status" 
 		/>
 	</a>
-	<a href="https://codeclimate.com/github/InterNACHI/modular/test_coverage" target="_blank">
+	<a href="https://codeclimate.com/github/Laltu/modular/test_coverage" target="_blank">
 		<img 
 			src="https://api.codeclimate.com/v1/badges/dd927802d52f4f75ea6c/test_coverage" 
 			alt="Coverage Status" 
 		/>
 	</a>
-	<a href="https://packagist.org/packages/internachi/modular" target="_blank">
+	<a href="https://packagist.org/packages/Laltu/modular" target="_blank">
         <img 
-            src="https://poser.pugx.org/internachi/modular/v/stable" 
+            src="https://poser.pugx.org/Laltu/modular/v/stable" 
             alt="Latest Stable Release" 
         />
 	</a>
 	<a href="./LICENSE" target="_blank">
         <img 
-            src="https://poser.pugx.org/internachi/modular/license" 
+            src="https://poser.pugx.org/Laltu/modular/license" 
             alt="MIT Licensed" 
         />
     </a>
@@ -41,7 +41,7 @@
     </a>
 </div>
 
-`internachi/modular` is a module system for Laravel applications. It uses
+`Laltu/modular` is a module system for Laravel applications. It uses
 [Composer path repositories](https://getcomposer.org/doc/05-repositories.md#path) for autoloading, 
 and [Laravel package discovery](https://laravel.com/docs/11.x/packages#package-discovery) for module
 initialization, and then provides minimal tooling to fill in any gaps.
@@ -59,14 +59,14 @@ conventions.
 
 ## Walkthrough Video
 
-[![Intro video](https://embed-ssl.wistia.com/deliveries/98ebc7e01537a644df2d3af93d928257.jpg?image_crop_resized=1600x900&image_play_button=true&image_play_button_size=2x&image_play_button_color=1e71e7e0)](https://internachi.wistia.com/medias/pivaxithl7?wvideo=pivaxithl7)
+[![Intro video](https://embed-ssl.wistia.com/deliveries/98ebc7e01537a644df2d3af93d928257.jpg?image_crop_resized=1600x900&image_play_button=true&image_play_button_size=2x&image_play_button_color=1e71e7e0)](https://Laltu.wistia.com/medias/pivaxithl7?wvideo=pivaxithl7)
 
 ## Installation
 
 To get started, run:
 
 ```shell script
-composer require internachi/modular
+composer require Laltu/modular
 ```
 
 Laravel will auto-discover the package and everything will be automatically set up for you.
@@ -77,7 +77,7 @@ While not required, it's highly recommended that you customize your default name
 for modules. By default, this is set to `Modules\`, which works just fine but makes it
 harder to extract your module to a separate package should you ever choose to.
 
-We recommend configuring a organization namespace (we use `"InterNACHI"`, for example).
+We recommend configuring a organization namespace (we use `"Laltu"`, for example).
 To do this, you'll need to publish the package config:
 
 ```shell script
@@ -261,4 +261,4 @@ If you are building a CMS that needs to support 3rd-party modules that can be dy
 enabled and disabled, Laravel Modules will be a better fit.
 
 On the other hand, if you're mostly interested in modules for organization, and want to
-stick closely to Laravel conventions, we’d highly recommend giving InterNACHI/Modular a try!
+stick closely to Laravel conventions, we’d highly recommend giving Laltu/Modular a try!

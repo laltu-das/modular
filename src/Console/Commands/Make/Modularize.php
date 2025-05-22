@@ -1,12 +1,12 @@
 <?php
 
-namespace InterNACHI\Modular\Console\Commands\Make;
+namespace Laltu\Modular\Console\Commands\Make;
 
 use Illuminate\Support\Str;
 
 trait Modularize
 {
-	use \InterNACHI\Modular\Console\Commands\Modularize;
+	use \Laltu\Modular\Console\Commands\Modularize;
 	
 	protected function getDefaultNamespace($rootNamespace)
 	{

@@ -1,11 +1,11 @@
 <?php
 
-namespace InterNACHI\Modular\Tests\Commands\Make;
+namespace Laltu\Modular\Tests\Commands\Make;
 
-use InterNACHI\Modular\Console\Commands\Make\MakeModule;
-use InterNACHI\Modular\Support\Facades\Modules;
-use InterNACHI\Modular\Tests\Concerns\WritesToAppFilesystem;
-use InterNACHI\Modular\Tests\TestCase;
+use Laltu\Modular\Console\Commands\Make\MakeModule;
+use Laltu\Modular\Support\Facades\Modules;
+use Laltu\Modular\Tests\Concerns\WritesToAppFilesystem;
+use Laltu\Modular\Tests\TestCase;
 
 class MakeModuleTest extends TestCase
 {

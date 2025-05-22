@@ -1,16 +1,16 @@
 <?php
 
-namespace InterNACHI\Modular\Tests;
+namespace Laltu\Modular\Tests;
 
 use Illuminate\Filesystem\Filesystem;
-use InterNACHI\Modular\Console\Commands\Make\MakeCommand;
-use InterNACHI\Modular\Console\Commands\Make\MakeComponent;
-use InterNACHI\Modular\Console\Commands\Make\MakeListener;
-use InterNACHI\Modular\Console\Commands\Make\MakeLivewire;
-use InterNACHI\Modular\Console\Commands\Make\MakeModel;
-use InterNACHI\Modular\Support\AutoDiscoveryHelper;
-use InterNACHI\Modular\Support\ModuleRegistry;
-use InterNACHI\Modular\Tests\Concerns\WritesToAppFilesystem;
+use Laltu\Modular\Console\Commands\Make\MakeCommand;
+use Laltu\Modular\Console\Commands\Make\MakeComponent;
+use Laltu\Modular\Console\Commands\Make\MakeListener;
+use Laltu\Modular\Console\Commands\Make\MakeLivewire;
+use Laltu\Modular\Console\Commands\Make\MakeModel;
+use Laltu\Modular\Support\AutoDiscoveryHelper;
+use Laltu\Modular\Support\ModuleRegistry;
+use Laltu\Modular\Tests\Concerns\WritesToAppFilesystem;
 use Livewire\Livewire;
 use Livewire\LivewireServiceProvider;
 use Livewire\Mechanisms\Mechanism;

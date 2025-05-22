@@ -1,6 +1,6 @@
 <?php
 
-namespace InterNACHI\Modular\Console\Commands\Make;
+namespace Laltu\Modular\Console\Commands\Make;
 
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Config;

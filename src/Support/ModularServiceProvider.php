@@ -1,6 +1,6 @@
 <?php
 
-namespace InterNACHI\Modular\Support;
+namespace Laltu\Modular\Support;
 
 use Closure;
 use Illuminate\Console\Application as Artisan;
@@ -16,12 +16,12 @@ use Illuminate\Support\Str;
 use Illuminate\Translation\Translator;
 use Illuminate\View\Compilers\BladeCompiler;
 use Illuminate\View\Factory as ViewFactory;
-use InterNACHI\Modular\Console\Commands\Make\MakeMigration;
-use InterNACHI\Modular\Console\Commands\Make\MakeModule;
-use InterNACHI\Modular\Console\Commands\ModulesCache;
-use InterNACHI\Modular\Console\Commands\ModulesClear;
-use InterNACHI\Modular\Console\Commands\ModulesList;
-use InterNACHI\Modular\Console\Commands\ModulesSync;
+use Laltu\Modular\Console\Commands\Make\MakeMigration;
+use Laltu\Modular\Console\Commands\Make\MakeModule;
+use Laltu\Modular\Console\Commands\ModulesCache;
+use Laltu\Modular\Console\Commands\ModulesClear;
+use Laltu\Modular\Console\Commands\ModulesList;
+use Laltu\Modular\Console\Commands\ModulesSync;
 use Livewire\Livewire;
 use ReflectionClass;
 use Symfony\Component\Finder\SplFileInfo;
@@ -45,7 +45,7 @@ class ModularServiceProvider extends ServiceProvider
 	
 	public function register(): void
 	{
-		$this->mergeConfigFrom("{$this->base_dir}/config.php", 'app-modules');
+		$this->mergeConfigFrom("{$this->base_dir}/config.php", 'modules');
 		
 		$this->app->singleton(ModuleRegistry::class, function() {
 			return new ModuleRegistry(

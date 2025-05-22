@@ -1,36 +1,36 @@
 <?php
 
-namespace InterNACHI\Modular\Support;
+namespace Laltu\Modular\Support;
 
 use Illuminate\Console\Application;
 use Illuminate\Console\Application as Artisan;
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand as OriginalMakeMigrationCommand;
 use Illuminate\Support\ServiceProvider;
-use InterNACHI\Modular\Console\Commands\Database\SeedCommand;
-use InterNACHI\Modular\Console\Commands\Make\MakeCast;
-use InterNACHI\Modular\Console\Commands\Make\MakeChannel;
-use InterNACHI\Modular\Console\Commands\Make\MakeCommand;
-use InterNACHI\Modular\Console\Commands\Make\MakeComponent;
-use InterNACHI\Modular\Console\Commands\Make\MakeController;
-use InterNACHI\Modular\Console\Commands\Make\MakeEvent;
-use InterNACHI\Modular\Console\Commands\Make\MakeException;
-use InterNACHI\Modular\Console\Commands\Make\MakeFactory;
-use InterNACHI\Modular\Console\Commands\Make\MakeJob;
-use InterNACHI\Modular\Console\Commands\Make\MakeListener;
-use InterNACHI\Modular\Console\Commands\Make\MakeLivewire;
-use InterNACHI\Modular\Console\Commands\Make\MakeMail;
-use InterNACHI\Modular\Console\Commands\Make\MakeMiddleware;
-use InterNACHI\Modular\Console\Commands\Make\MakeMigration;
-use InterNACHI\Modular\Console\Commands\Make\MakeModel;
-use InterNACHI\Modular\Console\Commands\Make\MakeNotification;
-use InterNACHI\Modular\Console\Commands\Make\MakeObserver;
-use InterNACHI\Modular\Console\Commands\Make\MakePolicy;
-use InterNACHI\Modular\Console\Commands\Make\MakeProvider;
-use InterNACHI\Modular\Console\Commands\Make\MakeRequest;
-use InterNACHI\Modular\Console\Commands\Make\MakeResource;
-use InterNACHI\Modular\Console\Commands\Make\MakeRule;
-use InterNACHI\Modular\Console\Commands\Make\MakeSeeder;
-use InterNACHI\Modular\Console\Commands\Make\MakeTest;
+use Laltu\Modular\Console\Commands\Database\SeedCommand;
+use Laltu\Modular\Console\Commands\Make\MakeCast;
+use Laltu\Modular\Console\Commands\Make\MakeChannel;
+use Laltu\Modular\Console\Commands\Make\MakeCommand;
+use Laltu\Modular\Console\Commands\Make\MakeComponent;
+use Laltu\Modular\Console\Commands\Make\MakeController;
+use Laltu\Modular\Console\Commands\Make\MakeEvent;
+use Laltu\Modular\Console\Commands\Make\MakeException;
+use Laltu\Modular\Console\Commands\Make\MakeFactory;
+use Laltu\Modular\Console\Commands\Make\MakeJob;
+use Laltu\Modular\Console\Commands\Make\MakeListener;
+use Laltu\Modular\Console\Commands\Make\MakeLivewire;
+use Laltu\Modular\Console\Commands\Make\MakeMail;
+use Laltu\Modular\Console\Commands\Make\MakeMiddleware;
+use Laltu\Modular\Console\Commands\Make\MakeMigration;
+use Laltu\Modular\Console\Commands\Make\MakeModel;
+use Laltu\Modular\Console\Commands\Make\MakeNotification;
+use Laltu\Modular\Console\Commands\Make\MakeObserver;
+use Laltu\Modular\Console\Commands\Make\MakePolicy;
+use Laltu\Modular\Console\Commands\Make\MakeProvider;
+use Laltu\Modular\Console\Commands\Make\MakeRequest;
+use Laltu\Modular\Console\Commands\Make\MakeResource;
+use Laltu\Modular\Console\Commands\Make\MakeRule;
+use Laltu\Modular\Console\Commands\Make\MakeSeeder;
+use Laltu\Modular\Console\Commands\Make\MakeTest;
 use Livewire\Commands as Livewire;
 
 class ModularizedCommandsServiceProvider extends ServiceProvider

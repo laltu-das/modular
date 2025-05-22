@@ -1,11 +1,11 @@
 <?php
 
-namespace InterNACHI\Modular\Console\Commands;
+namespace Laltu\Modular\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use InterNACHI\Modular\Support\ModuleConfig;
-use InterNACHI\Modular\Support\ModuleRegistry;
+use Laltu\Modular\Support\ModuleConfig;
+use Laltu\Modular\Support\ModuleRegistry;
 
 class ModulesList extends Command
 {

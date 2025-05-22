@@ -1,5 +1,5 @@
 {
-    "name": "internachi/modular",
+    "name": "laltu/modular",
     "description": "Modularize your Laravel apps",
     "keywords": [
         "laravel",
@@ -32,12 +32,12 @@
     },
     "autoload": {
         "psr-4": {
-            "InterNACHI\\Modular\\": "src/"
+            "Laltu\\Modular\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "InterNACHI\\Modular\\Tests\\": "tests/"
+            "Laltu\\Modular\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -47,12 +47,12 @@
     "extra": {
         "laravel": {
             "providers": [
-                "InterNACHI\\Modular\\Support\\ModularServiceProvider",
-                "InterNACHI\\Modular\\Support\\ModularizedCommandsServiceProvider",
-                "InterNACHI\\Modular\\Support\\ModularEventServiceProvider"
+                "Laltu\\Modular\\Support\\ModularServiceProvider",
+                "Laltu\\Modular\\Support\\ModularizedCommandsServiceProvider",
+                "Laltu\\Modular\\Support\\ModularEventServiceProvider"
             ],
             "aliases": {
-                "Modules": "InterNACHI\\Modular\\Support\\Facades\\Modules"
+                "Modules": "Laltu\\Modular\\Support\\Facades\\Modules"
             }
         }
     },

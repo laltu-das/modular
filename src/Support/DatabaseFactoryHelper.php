@@ -1,6 +1,6 @@
 <?php
 
-namespace InterNACHI\Modular\Support;
+namespace Laltu\Modular\Support;
 
 use Closure;
 use Illuminate\Database\Eloquent\Factories\Factory;

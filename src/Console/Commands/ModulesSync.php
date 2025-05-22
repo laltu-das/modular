@@ -1,15 +1,15 @@
 <?php
 
-namespace InterNACHI\Modular\Console\Commands;
+namespace Laltu\Modular\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use InterNACHI\Modular\Support\FinderCollection;
-use InterNACHI\Modular\Support\ModuleRegistry;
-use InterNACHI\Modular\Support\PhpStorm\LaravelConfigWriter;
-use InterNACHI\Modular\Support\PhpStorm\PhpFrameworkWriter;
-use InterNACHI\Modular\Support\PhpStorm\ProjectImlWriter;
-use InterNACHI\Modular\Support\PhpStorm\WorkspaceWriter;
+use Laltu\Modular\Support\FinderCollection;
+use Laltu\Modular\Support\ModuleRegistry;
+use Laltu\Modular\Support\PhpStorm\LaravelConfigWriter;
+use Laltu\Modular\Support\PhpStorm\PhpFrameworkWriter;
+use Laltu\Modular\Support\PhpStorm\ProjectImlWriter;
+use Laltu\Modular\Support\PhpStorm\WorkspaceWriter;
 use Symfony\Component\Finder\SplFileInfo;
 
 class ModulesSync extends Command
@@ -24,7 +24,7 @@ class ModulesSync extends Command
 	protected $filesystem;
 	
 	/**
-	 * @var \InterNACHI\Modular\Support\ModuleRegistry
+	 * @var \Laltu\Modular\Support\ModuleRegistry
 	 */
 	protected $registry;
 	

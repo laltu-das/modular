@@ -1,9 +1,9 @@
 <?php
 
-namespace InterNACHI\Modular\Tests\Commands\Database;
+namespace Laltu\Modular\Tests\Commands\Database;
 
-use InterNACHI\Modular\Tests\Concerns\WritesToAppFilesystem;
-use InterNACHI\Modular\Tests\TestCase;
+use Laltu\Modular\Tests\Concerns\WritesToAppFilesystem;
+use Laltu\Modular\Tests\TestCase;
 
 class SeedCommandTest extends TestCase
 {

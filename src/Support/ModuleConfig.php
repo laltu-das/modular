@@ -1,6 +1,6 @@
 <?php
 
-namespace InterNACHI\Modular\Support;
+namespace Laltu\Modular\Support;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;

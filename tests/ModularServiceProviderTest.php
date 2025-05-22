@@ -1,10 +1,10 @@
 <?php
 
-namespace InterNACHI\Modular\Tests;
+namespace Laltu\Modular\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use InterNACHI\Modular\Support\ModuleRegistry;
-use InterNACHI\Modular\Tests\Concerns\WritesToAppFilesystem;
+use Laltu\Modular\Support\ModuleRegistry;
+use Laltu\Modular\Tests\Concerns\WritesToAppFilesystem;
 
 class ModularServiceProviderTest extends TestCase
 {

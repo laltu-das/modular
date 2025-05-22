@@ -1,15 +1,15 @@
 <?php
 
-namespace InterNACHI\Modular\Tests;
+namespace Laltu\Modular\Tests;
 
 use Illuminate\Encryption\Encrypter;
-use InterNACHI\Modular\Console\Commands\Make\MakeModule;
-use InterNACHI\Modular\Support\DatabaseFactoryHelper;
-use InterNACHI\Modular\Support\Facades\Modules;
-use InterNACHI\Modular\Support\ModularEventServiceProvider;
-use InterNACHI\Modular\Support\ModularizedCommandsServiceProvider;
-use InterNACHI\Modular\Support\ModularServiceProvider;
-use InterNACHI\Modular\Support\ModuleConfig;
+use Laltu\Modular\Console\Commands\Make\MakeModule;
+use Laltu\Modular\Support\DatabaseFactoryHelper;
+use Laltu\Modular\Support\Facades\Modules;
+use Laltu\Modular\Support\ModularEventServiceProvider;
+use Laltu\Modular\Support\ModularizedCommandsServiceProvider;
+use Laltu\Modular\Support\ModularServiceProvider;
+use Laltu\Modular\Support\ModuleConfig;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra

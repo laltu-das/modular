@@ -1,11 +1,11 @@
 <?php
 
-namespace InterNACHI\Modular\Support\Facades;
+namespace Laltu\Modular\Support\Facades;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
-use InterNACHI\Modular\Support\ModuleConfig;
-use InterNACHI\Modular\Support\ModuleRegistry;
+use Laltu\Modular\Support\ModuleConfig;
+use Laltu\Modular\Support\ModuleRegistry;
 
 /**
  * @method static ModuleConfig|null module(string $name)
@@ -14,7 +14,7 @@ use InterNACHI\Modular\Support\ModuleRegistry;
  * @method static Collection modules()
  * @method static Collection reload()
  *
- * @see \InterNACHI\Modular\Support\ModuleRegistry
+ * @see \Laltu\Modular\Support\ModuleRegistry
  */
 class Modules extends Facade
 {

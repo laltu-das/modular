@@ -1,10 +1,10 @@
 <?php
 
-namespace InterNACHI\Modular\Console\Commands;
+namespace Laltu\Modular\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use InterNACHI\Modular\Support\ModuleRegistry;
+use Laltu\Modular\Support\ModuleRegistry;
 
 class ModulesClear extends Command
 {

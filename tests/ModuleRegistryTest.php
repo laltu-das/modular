@@ -1,10 +1,10 @@
 <?php
 
-namespace InterNACHI\Modular\Tests;
+namespace Laltu\Modular\Tests;
 
-use InterNACHI\Modular\Support\ModuleConfig;
-use InterNACHI\Modular\Support\ModuleRegistry;
-use InterNACHI\Modular\Tests\Concerns\WritesToAppFilesystem;
+use Laltu\Modular\Support\ModuleConfig;
+use Laltu\Modular\Support\ModuleRegistry;
+use Laltu\Modular\Tests\Concerns\WritesToAppFilesystem;
 
 class ModuleRegistryTest extends TestCase
 {

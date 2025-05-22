@@ -1,9 +1,9 @@
 <?php
 
-namespace InterNACHI\Modular\Console\Commands\Database;
+namespace Laltu\Modular\Console\Commands\Database;
 
 use Illuminate\Support\Str;
-use InterNACHI\Modular\Console\Commands\Modularize;
+use Laltu\Modular\Console\Commands\Modularize;
 
 class SeedCommand extends \Illuminate\Database\Console\Seeds\SeedCommand
 {

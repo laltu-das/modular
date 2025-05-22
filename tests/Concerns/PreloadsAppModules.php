@@ -1,6 +1,6 @@
 <?php
 
-namespace InterNACHI\Modular\Tests\Concerns;
+namespace Laltu\Modular\Tests\Concerns;
 
 use Illuminate\Filesystem\Filesystem;
 

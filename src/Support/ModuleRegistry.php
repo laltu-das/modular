@@ -1,10 +1,10 @@
 <?php
 
-namespace InterNACHI\Modular\Support;
+namespace Laltu\Modular\Support;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use InterNACHI\Modular\Exceptions\CannotFindModuleForPathException;
+use Laltu\Modular\Exceptions\CannotFindModuleForPathException;
 use Symfony\Component\Finder\SplFileInfo;
 
 class ModuleRegistry
