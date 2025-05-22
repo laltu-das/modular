@@ -9,8 +9,8 @@ class MakeFactory extends FactoryMakeCommand
 {
 	use Modularize;
 	
-	protected function replaceNamespace(&$stub, $name)
-	{
+	protected function replaceNamespace(&$stub, $name): MakeFactory
+    {
 		if ($module = $this->module()) {
 			$model = $this->option('model')
 				? $this->qualifyModel($this->option('model'))

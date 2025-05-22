@@ -13,8 +13,8 @@ class ModulesList extends Command
 	
 	protected $description = 'List all modules';
 	
-	public function handle(ModuleRegistry $registry)
-	{
+	public function handle(ModuleRegistry $registry): void
+    {
 		$namespace_title = 'Namespace';
 		
 		$table = $registry->modules()

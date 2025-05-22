@@ -12,8 +12,8 @@ class ModulesClear extends Command
 	
 	protected $description = 'Remove the module cache file';
 	
-	public function handle(Filesystem $filesystem, ModuleRegistry $registry)
-	{
+	public function handle(Filesystem $filesystem, ModuleRegistry $registry): void
+    {
 		$filesystem->delete($registry->getCachePath());
 		$this->info('Module cache cleared!');
 	}

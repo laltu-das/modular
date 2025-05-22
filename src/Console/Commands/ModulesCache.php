@@ -15,8 +15,8 @@ class ModulesCache extends Command
 	
 	protected $description = 'Create a cache file for faster module loading';
 	
-	public function handle(ModuleRegistry $registry, Filesystem $filesystem)
-	{
+	public function handle(ModuleRegistry $registry, Filesystem $filesystem): void
+    {
 		$this->call(ModulesClear::class);
 		
 		$export = $registry->modules()

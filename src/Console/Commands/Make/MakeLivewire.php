@@ -6,9 +6,8 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use Livewire\Commands\MakeCommand;
+use Livewire\Features\SupportConsoleCommands\Commands\MakeCommand;
 use Livewire\Livewire;
-use Livewire\LivewireComponentsFinder;
 
 if (class_exists(MakeCommand::class)) {
 	class MakeLivewire extends MakeCommand

@@ -71,20 +71,26 @@ class DatabaseFactoryHelper
 	}
 	
 	/**
-	 * Because Factory::$namespace is protected, we need to access it via reflection.
+	 * Because the Factory::$namespace is protected, we need to access it via reflection.
 	 */
 	public function namespace(): string
 	{
 		return $this->namespace ??= $this->getProperty(Factory::class, 'namespace');
 	}
-	
-	protected function getProperty($target, $property)
+
+    /**
+     * @throws \ReflectionException
+     */
+    protected function getProperty($target, $property)
 	{
 		$reflection = new ReflectionClass($target);
 		return $reflection->getStaticPropertyValue($property);
 	}
-	
-	protected function unsetProperty($target, $property): void
+
+    /**
+     * @throws \ReflectionException
+     */
+    protected function unsetProperty($target, $property): void
 	{
 		$reflection = new ReflectionClass($target);
 		if ($reflection->hasProperty($property)) {

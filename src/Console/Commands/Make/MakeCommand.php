@@ -9,8 +9,8 @@ class MakeCommand extends ConsoleMakeCommand
 {
 	use Modularize;
 	
-	protected function replaceClass($stub, $name)
-	{
+	protected function replaceClass($stub, $name): array|string
+    {
 		$module = $this->module();
 		
 		$stub = parent::replaceClass($stub, $name);

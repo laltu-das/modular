@@ -16,8 +16,7 @@ use Symfony\Component\Console\Terminal;
 class MakeModule extends Command
 {
 	protected $signature = 'make:module
-		{name : The name of the module}
-		{--accept-default-namespace : Skip default namespace confirmation}';
+		{name : The name of the module}';
 	
 	protected $description = 'Create a new Laravel module';
 	
@@ -325,13 +324,9 @@ class MakeModule extends Command
 		if (is_array($custom_stubs = config('modules.stubs'))) {
 			return $custom_stubs;
 		}
-		
-		$composer_stub = version_compare($this->getLaravel()->version(), '8.0.0', '<')
-			? 'composer-stub-v7.json'
-			: 'composer-stub-latest.json';
-		
+
 		return [
-			'composer.json' => $this->pathToStub($composer_stub),
+			'composer.json' => $this->pathToStub('composer-stub.json'),
 			'src/Providers/StubClassNamePrefixServiceProvider.php' => $this->pathToStub('ServiceProvider.php'),
 			'tests/Feature/Providers/StubClassNamePrefixServiceProviderTest.php' => $this->pathToStub('ServiceProviderTest.php'),
 			'routes/StubModuleName-routes.php' => $this->pathToStub('web-routes.php'),

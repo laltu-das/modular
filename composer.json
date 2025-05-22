@@ -17,8 +17,6 @@
     "license": "MIT",
     "require": {
         "php": ">=8.2",
-        "ext-simplexml": "*",
-        "ext-dom": "*",
         "composer/composer": "^2.1",
         "illuminate/support": "^11|^12"
     },
@@ -39,10 +37,6 @@
         "psr-4": {
             "Laltu\\Modular\\Tests\\": "tests/"
         }
-    },
-    "scripts": {
-        "fix-style": "vendor/bin/php-cs-fixer fix",
-        "check-style": "vendor/bin/php-cs-fixer fix --diff --dry-run"
     },
     "extra": {
         "laravel": {

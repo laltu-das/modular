@@ -8,12 +8,12 @@ trait Modularize
 {
 	use \Laltu\Modular\Console\Commands\Modularize;
 	
-	protected function getDefaultNamespace($rootNamespace)
-	{
+	protected function getDefaultNamespace($rootNamespace): array|string
+    {
 		$namespace = parent::getDefaultNamespace($rootNamespace);
 		$module = $this->module();
 		
-		if ($module && false === strpos($rootNamespace, $module->namespaces->first())) {
+		if ($module && !str_contains($rootNamespace, $module->namespaces->first())) {
 			$find = rtrim($rootNamespace, '\\');
 			$replace = rtrim($module->namespaces->first(), '\\');
 			$namespace = str_replace($find, $replace, $namespace);
@@ -22,8 +22,8 @@ trait Modularize
 		return $namespace;
 	}
 	
-	protected function qualifyClass($name)
-	{
+	protected function qualifyClass($name): string
+    {
 		$name = ltrim($name, '\\/');
 		
 		if ($module = $this->module()) {
@@ -35,8 +35,8 @@ trait Modularize
 		return parent::qualifyClass($name);
 	}
 	
-	protected function qualifyModel(string $model)
-	{
+	protected function qualifyModel(string $model): array|string
+    {
 		if ($module = $this->module()) {
 			$model = str_replace('/', '\\', ltrim($model, '\\/'));
 			
@@ -50,8 +50,8 @@ trait Modularize
 		return parent::qualifyModel($model);
 	}
 	
-	protected function getPath($name)
-	{
+	protected function getPath($name): array|string
+    {
 		if ($module = $this->module()) {
 			$name = Str::replaceFirst($module->namespaces->first(), '', $name);
 		}
@@ -74,7 +74,7 @@ trait Modularize
 			$find = array_map($normalize, array_keys($replacements));
 			$replace = array_map($normalize, array_values($replacements));
 			
-			// And finally apply the replacements
+			// And finally, apply the replacements
 			$path = str_replace($find, $replace, $path);
 		}
 		
@@ -83,7 +83,7 @@ trait Modularize
 	
 	public function call($command, array $arguments = [])
 	{
-		// Pass the --module flag on to subsequent commands
+		// Pass the --module flag on to later commands
 		if ($module = $this->option('module')) {
 			$arguments['--module'] = $module;
 		}

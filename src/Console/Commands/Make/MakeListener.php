@@ -3,15 +3,19 @@
 namespace Laltu\Modular\Console\Commands\Make;
 
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Foundation\Console\ListenerMakeCommand;
 use Laltu\Modular\Support\Facades\Modules;
 
 class MakeListener extends ListenerMakeCommand
 {
 	use Modularize;
-	
-	protected function buildClass($name)
-	{
+
+    /**
+     * @throws FileNotFoundException
+     */
+    protected function buildClass($name): array|string
+    {
 		$event = $this->option('event');
 		
 		if (Modules::moduleForClass($name)) {

@@ -8,8 +8,8 @@ class MakeComponent extends ComponentMakeCommand
 {
 	use Modularize;
 	
-	protected function viewPath($path = '')
-	{
+	protected function viewPath($path = ''): string
+    {
 		if ($module = $this->module()) {
 			return $module->path("resources/views/{$path}");
 		}

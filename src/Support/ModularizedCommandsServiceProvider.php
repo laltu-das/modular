@@ -75,16 +75,16 @@ class ModularizedCommandsServiceProvider extends ServiceProvider
 		});
 	}
 	
-	protected function registerMakeCommandOverrides()
-	{
+	protected function registerMakeCommandOverrides(): void
+    {
 		foreach ($this->overrides as $alias => $class_name) {
 			$this->app->singleton($alias, $class_name);
 			$this->app->singleton(get_parent_class($class_name), $class_name);
 		}
 	}
 	
-	protected function registerMigrationCommandOverrides()
-	{
+	protected function registerMigrationCommandOverrides(): void
+    {
 		// Laravel 8
 		$this->app->singleton('command.migrate.make', function($app) {
 			return new MakeMigration($app['migration.creator'], $app['composer']);
@@ -96,8 +96,8 @@ class ModularizedCommandsServiceProvider extends ServiceProvider
 		});
 	}
 	
-	protected function registerLivewireOverrides(Artisan $artisan)
-	{
+	protected function registerLivewireOverrides(Artisan $artisan): void
+    {
 		// Don't register commands if Livewire isn't installed
 		if (! class_exists(Livewire\MakeCommand::class)) {
 			return;

@@ -8,8 +8,8 @@ class MakeModel extends ModelMakeCommand
 {
 	use Modularize;
 	
-	protected function getDefaultNamespace($rootNamespace)
-	{
+	protected function getDefaultNamespace($rootNamespace): string
+    {
 		if ($module = $this->module()) {
 			$rootNamespace = rtrim($module->namespaces->first(), '\\');
 		}

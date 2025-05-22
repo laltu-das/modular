@@ -2,15 +2,19 @@
 
 namespace Laltu\Modular\Console\Commands\Make;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
 use Illuminate\Filesystem\Filesystem;
 
 class MakeMigration extends MigrateMakeCommand
 {
 	use Modularize;
-	
-	protected function getMigrationPath()
-	{
+
+    /**
+     * @throws BindingResolutionException
+     */
+    protected function getMigrationPath(): array|string
+    {
 		$path = parent::getMigrationPath();
 		
 		if ($module = $this->module()) {

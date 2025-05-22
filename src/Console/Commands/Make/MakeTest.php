@@ -11,8 +11,8 @@ class MakeTest extends TestMakeCommand
 		getPath as getModularPath;
 	}
 	
-	protected function getPath($name)
-	{
+	protected function getPath($name): array|string
+    {
 		if ($module = $this->module()) {
 			$name = '\\'.Str::replaceFirst($module->namespaces->first(), '', $name);
 			return $this->getModularPath($name);
@@ -21,8 +21,8 @@ class MakeTest extends TestMakeCommand
 		return parent::getPath($name);
 	}
 	
-	protected function rootNamespace()
-	{
+	protected function rootNamespace(): string
+    {
 		if ($module = $this->module()) {
 			return $module->namespaces->first().'Tests';
 		}

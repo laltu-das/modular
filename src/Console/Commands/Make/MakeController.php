@@ -10,8 +10,8 @@ class MakeController extends ControllerMakeCommand
 {
 	use Modularize;
 	
-	protected function parseModel($model)
-	{
+	protected function parseModel($model): string
+    {
 		if (! $module = $this->module()) {
 			return parent::parseModel($model);
 		}

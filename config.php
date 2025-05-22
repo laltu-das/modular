@@ -53,7 +53,7 @@ return [
 	|--------------------------------------------------------------------------
 	|
 	| This is the base TestCase class name that auto-generated Tests should
-	| extend. By default it assumes the default \Tests\TestCase exists.
+	| extend. By default, it assumes the default \Tests\TestCase exists.
 	|
 	*/
 	
@@ -66,7 +66,7 @@ return [
 	|
 	| If you would like to use your own custom stubs for new modules, you can
 	| configure those here. This should be an array where the key is the path
-	| relative to the module and the value is the absolute path to the stub
+	| relative to the module, and the value is the absolute path to the stub
 	| stub file. Destination paths and contents support placeholders. See the
 	| README.md file for more information.
 	|

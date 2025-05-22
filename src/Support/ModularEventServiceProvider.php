@@ -2,6 +2,7 @@
 
 namespace Laltu\Modular\Support;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
@@ -10,8 +11,8 @@ use Symfony\Component\Finder\SplFileInfo;
 
 class ModularEventServiceProvider extends ServiceProvider
 {
-	public function register()
-	{
+	public function register(): void
+    {
 		// We need to do this in the App::booting hook to ensure that it registers
 		// events before the EventServiceProvider::booting callback triggers. It's
 		// necessary to modify the existing EventServiceProvider's $listen array,
@@ -26,8 +27,7 @@ class ModularEventServiceProvider extends ServiceProvider
 			}
 			
 			$listen = new ReflectionProperty($provider, 'listen');
-			$listen->setAccessible(true);
-			$listen->setValue($provider, array_merge_recursive($listen->getValue($provider), $events));
+            $listen->setValue($provider, array_merge_recursive($listen->getValue($provider), $events));
 		});
 	}
 	
@@ -47,8 +47,11 @@ class ModularEventServiceProvider extends ServiceProvider
 		return config('modules.should_discover_events')
 			?? $this->appIsConfiguredToDiscoverEvents();
 	}
-	
-	public function discoverEvents()
+
+    /**
+     * @throws BindingResolutionException
+     */
+    public function discoverEvents()
 	{
 		$modules = $this->app->make(ModuleRegistry::class);
 		

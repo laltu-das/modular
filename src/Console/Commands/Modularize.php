@@ -2,6 +2,8 @@
 
 namespace Laltu\Modular\Console\Commands;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Laltu\Modular\Support\ModuleConfig;
 use Laltu\Modular\Support\ModuleRegistry;
 use function Laravel\Prompts\select;
@@ -12,13 +14,20 @@ trait Modularize
 {
 	protected ?string $module = null;
 
-	private function moduleRegistry(): ModuleRegistry
+    /**
+     * @throws BindingResolutionException
+     */
+    private function moduleRegistry(): ModuleRegistry
 	{
 		return $this->getLaravel()->make(ModuleRegistry::class);
 	}
 
-	public function handle()
-	{
+    /**
+     * @throws FileNotFoundException
+     * @throws BindingResolutionException
+     */
+    public function handle(): void
+    {
 		if ($this->input->hasParameterOption('--module')) {
 			$modules = $this->moduleRegistry()->modules()->keys();
 
@@ -28,7 +37,10 @@ trait Modularize
 		parent::handle();
 	}
 
-	protected function module(): ?ModuleConfig
+    /**
+     * @throws BindingResolutionException
+     */
+    protected function module(): ?ModuleConfig
 	{
 		if ($this->module === null) {
 			return null;
@@ -43,8 +55,8 @@ trait Modularize
 		return $config;
 	}
 	
-	protected function configure()
-	{
+	protected function configure(): void
+    {
 		parent::configure();
 		
 		$this->getDefinition()->addOption(

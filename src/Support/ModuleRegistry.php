@@ -39,8 +39,11 @@ class ModuleRegistry
 	{
 		return $this->module($this->extractModuleNameFromPath($path));
 	}
-	
-	public function moduleForPathOrFail(string $path): ModuleConfig
+
+    /**
+     * @throws CannotFindModuleForPathException
+     */
+    public function moduleForPathOrFail(string $path): ModuleConfig
 	{
 		if ($module = $this->moduleForPath($path)) {
 			return $module;
@@ -105,7 +108,7 @@ class ModuleRegistry
 		$path = str_replace('\\', '/', $path);
 		
 		// If the modules directory is symlinked, we may get two paths that are actually
-		// in the same directory, but have different prefixes. This helps resolve that.
+		// in the same directory but have different prefixes. This helps resolve that.
 		if (Str::startsWith($path, $this->modules_path)) {
 			$path = trim(Str::after($path, $this->modules_path), '/');
 		} elseif (Str::startsWith($path, $modules_real_path = str_replace('\\', '/', realpath($this->modules_path)))) {

@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Console\Application as Artisan;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Auth\Access\Gate;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Translation\Translator as TranslatorContract;
 use Illuminate\Database\Console\Migrations\MigrateMakeCommand;
 use Illuminate\Database\Eloquent\Factories\Factory as EloquentFactory;
@@ -62,7 +63,7 @@ class ModularServiceProvider extends ServiceProvider
 		$this->registerEloquentFactories();
 		
 		// Set up lazy registrations for things that only need to run if we're using
-		// that functionality (e.g. we only need to look for and register migrations
+		// that functionality (e.g., we only need to look for and register migrations
 		// if we're running the migrator)
 		$this->registerLazily(Migrator::class, [$this, 'registerMigrations']);
 		$this->registerLazily(Gate::class, [$this, 'registerPolicies']);
@@ -83,13 +84,19 @@ class ModularServiceProvider extends ServiceProvider
 		$this->bootTranslations();
 		$this->bootLivewireComponents();
 	}
-	
-	protected function registry(): ModuleRegistry
+
+    /**
+     * @throws BindingResolutionException
+     */
+    protected function registry(): ModuleRegistry
 	{
 		return $this->registry ??= $this->app->make(ModuleRegistry::class);
 	}
-	
-	protected function autoDiscoveryHelper(): AutoDiscoveryHelper
+
+    /**
+     * @throws BindingResolutionException
+     */
+    protected function autoDiscoveryHelper(): AutoDiscoveryHelper
 	{
 		return $this->auto_discovery_helper ??= $this->app->make(AutoDiscoveryHelper::class);
 	}
@@ -168,7 +175,7 @@ class ModularServiceProvider extends ServiceProvider
 			if (! $translator instanceof Translator) {
 				return;
 			}
-			
+
 			$this->autoDiscoveryHelper()
 				->langDirectoryFinder()
 				->each(function(SplFileInfo $directory) use ($translator) {
@@ -180,11 +187,12 @@ class ModularServiceProvider extends ServiceProvider
 				});
 		});
 	}
-	
-	/**
-	 * This functionality is likely to go away at some point so don't rely
-	 * on it too much. The package has been abandoned.
-	 */
+
+    /**
+     * This functionality is likely to go away at some point so don't rely
+     * on it too much. The package has been abandoned.
+     * @throws BindingResolutionException
+     */
 	protected function bootBreadcrumbs(): void
 	{
 		$class_name = 'Diglactic\\Breadcrumbs\\Manager';
@@ -193,7 +201,7 @@ class ModularServiceProvider extends ServiceProvider
 			return;
 		}
 		
-		// The breadcrumbs package makes $breadcrumbs available in the scope of breadcrumb
+		// The breadcrumb package makes $breadcrumbs available in the scope of breadcrumb
 		// files, so we'll do the same for consistency-sake
 		$breadcrumbs = $this->app->make($class_name);
 		

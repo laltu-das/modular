@@ -2,14 +2,18 @@
 
 namespace Laltu\Modular\Console\Commands\Database;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Str;
 use Laltu\Modular\Console\Commands\Modularize;
 
 class SeedCommand extends \Illuminate\Database\Console\Seeds\SeedCommand
 {
 	use Modularize;
-	
-	protected function getSeeder()
+
+    /**
+     * @throws BindingResolutionException
+     */
+    protected function getSeeder()
 	{
 		if ($module = $this->module()) {
 			$default = $this->getDefinition()->getOption('class')->getDefault();
